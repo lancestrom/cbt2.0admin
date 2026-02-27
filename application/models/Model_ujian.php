@@ -235,10 +235,12 @@ ORDER BY cbt_course.fullname ASC";
     public function statusPesertaLogin()
     {
         $sql = "SELECT cbt_sessions.id,cbt_sessions.userid,cbt_user.firstname,cbt_user.lastname,cbt_sessions.firstip,
-FROM_UNIXTIME(cbt_sessions.timecreated) AS waktu_login
+FROM_UNIXTIME(cbt_sessions.timecreated) AS waktu_login,COUNT(*) AS jumlah_login
 FROM `cbt_sessions`
 INNER JOIN cbt_user
-ON cbt_user.id=cbt_sessions.userid";
+ON cbt_user.id=cbt_sessions.userid
+WHERE cbt_sessions.userid NOT IN ('2')
+GROUP BY cbt_sessions.userid";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

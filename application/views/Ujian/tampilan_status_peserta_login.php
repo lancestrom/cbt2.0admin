@@ -16,7 +16,9 @@
         <div class="card">
             <div class="card-body">
                 <!-- <a class="btn btn-success btn-sm" href="<?= base_url() ?>Dashboard/tambah_jurusan"><i class="fas fa-plus-square"></i> Tambah Jurusan</a> -->
-                <a class="btn btn-danger btn-sm text-uppercase" href="<?= base_url() ?>Dashboard/hapus_all_peserta_login"><i class="fas fa-trash-alt"></i> Hapus Semua peserta login</a>
+                <a class="btn btn-danger btn-sm text-uppercase"
+                    href="<?= base_url() ?>Dashboard/hapus_all_peserta_login"><i class="fas fa-trash-alt"></i> Hapus
+                    Semua peserta login</a>
             </div>
         </div>
     </div>
@@ -26,16 +28,15 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-striped table-bordered text-center" id="dataTable" width="100%"
+                        cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">ID Seeesion</th>
+                                <th scope="col">ID Siswa</th>
                                 <th scope="col">Nama Siswa</th>
                                 <th scope="col">Kelas</th>
-                                <th scope="col">IP Login</th>
-                                <th scope="col">Waktu</th>
-                                <th scope="col">Aksi</th>
+                                <th scope="col">Jumlah Login</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,16 +46,11 @@
                                 foreach ($status as $row) {
                                 ?>
                                     <td><?= $no++ ?></td>
-                                    <td><?= $row['id'] ?></td>
+                                    <td class="text-center"><?= $row['userid'] ?></td>
                                     <td><?= $row['firstname'] ?></td>
                                     <td><?= $row['lastname'] ?></td>
-                                    <td><?= $row['firstip'] ?></td>
-                                    <td><?= $row['waktu_login'] ?></td>
-                                    <td>
-                                        <h5 class="text-center">
-                                            <a class="btn btn-danger btn-sm" href="<?= base_url() ?>Dashboard/hapus_session_login/<?= $row['id'] ?>">Hapus Login</a>
-                                        </h5>
-                                    </td>
+                                    <td class="text-center"><?php echo $row['jumlah_login']; ?> X Login</td>
+
                             </tr>
                         <?php } ?>
                         </tbody>
