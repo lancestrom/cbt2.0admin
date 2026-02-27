@@ -10,6 +10,41 @@ class Model_siswa extends CI_Model
         return $query->row()->siswa;
     }
 
+    public function countAKL()
+    {
+        $sql = "SELECT COUNT(*) as siswa FROM `a_siswa` WHERE jurusan='AKL'";
+        $query = $this->db->query($sql);
+        return $query->row()->siswa;
+    }
+
+    public function countOTKP()
+    {
+        $sql = "SELECT COUNT(*) as siswa FROM `a_siswa` WHERE jurusan='OTKP'";
+        $query = $this->db->query($sql);
+        return $query->row()->siswa;
+    }
+
+    public function countTKJ()
+    {
+        $sql = "SELECT COUNT(*) as siswa FROM `a_siswa` WHERE jurusan='TKJ'";
+        $query = $this->db->query($sql);
+        return $query->row()->siswa;
+    }
+
+    public function countBDP()
+    {
+        $sql = "SELECT COUNT(*) as siswa FROM `a_siswa` WHERE jurusan='TKJ'";
+        $query = $this->db->query($sql);
+        return $query->row()->siswa;
+    }
+
+    public function countDKV()
+    {
+        $sql = "SELECT COUNT(*) as siswa FROM `a_siswa` WHERE jurusan='DKV'";
+        $query = $this->db->query($sql);
+        return $query->row()->siswa;
+    }
+
     public function countSiswaMoodle()
     {
         $sql = "SELECT COUNT(*) AS jumlah_siswa_moodle FROM `cbt_user`
