@@ -757,6 +757,30 @@ class Dashboard extends CI_Controller
         $this->load->view('Ujian/tampilan_print_nilai', $isi);
     }
 
+    public function backup_db()
+    {
+        // load database utility
+        $this->load->dbutil();
+
+        // build filename with timestamp
+        $db_name = 'cbt_' . $this->db->database . date('Y-m-d-H-i-s') . '.sql';
+
+        // preferences for backup
+        $prefs = array(
+            'format'             => 'zip',
+            'filename'           => $db_name,
+            'add_insert'         => TRUE,
+            'foreign_key_checks' => FALSE
+        );
+
+        // create backup in memory
+        $backup = $this->dbutil->backup($prefs);
+
+        // send directly to browser without saving
+        $this->load->helper('download');
+        force_download($db_name, $backup);
+    }
+
 
 
 
