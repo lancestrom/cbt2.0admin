@@ -1,7 +1,17 @@
 <div class="alert alert-success" role="alert">
     <h2 class="text-center text-uppercase font-weight-bold">CBT Tunas Harapan <br>Admin utama</h2>
 </div>
-
+<div class="row">
+    <div class="col-md">
+        <div class="card">
+            <div class="card-body">
+                <a class="btn btn-sm btn-primary text-uppercase font-weight-bolder"
+                    href="<?= base_url() ?>Dashboard/backup_db">backup
+                    databases</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row mb-3">
     <div class="col-sm mt-2">
         <div class="card rounded">
